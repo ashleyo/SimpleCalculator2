@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+}
+.fred {
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper {
+    background-color: white;
+    width: 400px;
+    border-radius: 16px;
+}
+.row {
+    display: flex;
+}

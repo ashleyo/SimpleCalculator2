@@ -1,0 +1,27 @@
+:root {
+    --num-key-back: #5a5a5a;
+    --num-key-front: white;
+    --op-key-back: #f2a33c;
+}
+
+.button {
+
+
+    display:flex;
+    height: 4em;
+    background-color: var(--num-key-back);
+    color: var(--num-key-front);
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-size: 24px;
+    margin: 4px;
+    border-radius: 25px;
+}
+
+.operator {
+    background-color: var(--op-key-back);
+}
+.function {
+    background-color: grey;
+}
