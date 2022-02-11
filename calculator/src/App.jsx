@@ -5,49 +5,71 @@ import {useState} from 'react'
 import {evaluate} from 'mathjs'
 
 
+Button.defaultProps = { handleClick: addToText };
 
 const App = () => {
 
   const [text, setText] = useState("");
+
   const [result, setResult] = useState("0");
 
-  const addToText = (newtext) => setText((text) => [...text, newtext + ' '])
+  const addToText = (newtext) => setText((text) => [...text, newtext ])
   const clearAll = () => { setText(""); setResult("") }
+
   const evalit = () => {
-    setResult(evaluate(text.join("")))
+    try {
+        console.log(text)
+        x = evaluate(text.join(""))
+        setResult(x)
+      }
+    catch (e) {
+        setResult("Error")
+      }
     setText("")
   } 
 
   return (
     <div className={styles.fred}>
       <div className={styles.wrapper}>
+
         <OutputBox text={text} result={result} />
+        
         <div className={styles.row}>
-          <Button type="number" symbol="7" handleClick={addToText}></Button>
-          <Button type="number" symbol="8" handleClick={addToText}></Button>
-          <Button type="number" symbol="9" handleClick={addToText}></Button>
-          <Button type="operator" symbol="/" handleClick={addToText}></Button>
+          <Button />
+          <Button /> 
+          <Button />
+          <Button type="clear" symbol="Clear" handleClick={clearAll}/>  
+        </div>
+        
+        <div className={styles.row}>
+          <Button type="number" symbol="7" />
+          <Button type="number" symbol="8" />
+          <Button type="number" symbol="9" />
+          <Button type="operator" symbol="/" />
         </div>   
+        
         <div className={styles.row}>
-          <Button type="number" symbol="4" handleClick={addToText}></Button>
-          <Button type="number" symbol="5" handleClick={addToText}></Button>
-          <Button type="number" symbol="6" handleClick={addToText}></Button>
-          <Button type="operator" symbol="*" handleClick={addToText}></Button>
+          <Button type="number" symbol="4" />
+          <Button type="number" symbol="5" />
+          <Button type="number" symbol="6" />
+          <Button type="operator" symbol="*" />
         </div> 
+        
         <div className={styles.row}>
-          <Button type="number" symbol="1" handleClick={addToText}></Button>
-          <Button type="number" symbol="2" handleClick={addToText}></Button>
-          <Button type="number" symbol="3" handleClick={addToText}></Button>
-          <Button type="operator" symbol="+" handleClick={addToText}></Button>
+          <Button type="number" symbol="1" />
+          <Button type="number" symbol="2" />
+          <Button type="number" symbol="3" />
+          <Button type="operator" symbol="+" />
         </div> 
+        
         <div className={styles.row}>
-          <Button type="number" symbol="0" handleClick={addToText}></Button>
-          <Button type="number" symbol="." handleClick={addToText}></Button>
-          <Button type="function" symbol="=" handleClick={evalit}></Button>
-          <Button type="operator" symbol="-" handleClick={addToText}></Button>
-        </div>  
-        <Button type="function" symbol="Clear" handleClick={clearAll}></Button>  
-      </div>
+          <Button type="number" symbol="0" />
+          <Button type="number" symbol="." />
+          <Button type="function" symbol="=" handleClick={evalit}/>
+          <Button type="operator" symbol="-" />
+        </div> 
+
+        </div>
     </div>
 
     )

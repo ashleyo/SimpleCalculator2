@@ -5,7 +5,10 @@
     flex-flow: column;
     align-items: flex-end;
     justify-content: flex-end;
-    font-size: 24px;
+    font-size: 32px;
+    background-color: white;
+    margin: 1rem;
+    border-radius: 10px;
 }
 .display, .text {
     flex: 1;

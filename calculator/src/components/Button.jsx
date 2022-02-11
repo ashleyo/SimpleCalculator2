@@ -1,6 +1,6 @@
 import styles from './Button.module.css'
 
-export const Button = ({type, symbol, handleClick}) => {
+const Button = ({type, symbol, handleClick}) => {
     return (
         <div 
             onClick={()=>handleClick(symbol)} 
@@ -8,3 +8,5 @@ export const Button = ({type, symbol, handleClick}) => {
                 {symbol}
         </div>
 )}
+
+export default Button;
